@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>나만의 멋진 포트폴리오</title> <!-- 여기에 웹사이트 제목을 입력하세요 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <style>
+        /* 이 부분은 전체적인 스타일 설정입니다. 필요에 따라 수정하세요. */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Pretendard Variable", sans-serif; }
+        html { scroll-behavior: smooth; } /* 부드러운 스크롤 */
+        body { background-color: #fcfcfc; color: #222; line-height: 1.6; }
+
+        header { position: fixed; top: 0; width: 100%; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px); z-index: 100; border-bottom: 1px solid #eaeaea; }
+        .nav { max-width: 1000px; margin: 0 auto; padding: 20px; display: flex; justify-content: space-between; }
+        .nav-links a { text-decoration: none; color: #222; margin-left: 25px; font-size: 0.95rem; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: #888; }
+
+        section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 100px 20px; max-width: 1000px; margin: 0 auto; }
+        h1 { font-size: 3rem; font-weight: 800; margin-bottom: 15px; letter-spacing: -1px; text-align: center; } /* 메인 제목 스타일 */
+        p { font-size: 1.1rem; color: #666; text-align: center; max-width: 600px; } /* 본문 텍스트 스타일 */
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; width: 100%; margin-top: 40px; }
+        .card { background: #fff; border: 1px solid #eee; border-radius: 12px; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+        .card:hover { transform: translateY(-6px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        .card-img-container { height: 200px; overflow: hidden; display: flex; align-items: center; justify-content: center; background-color: #f0f0f0; } /* 이미지 컨테이너 */
+        .card-img-container img { width: 100%; height: 100%; object-fit: cover; } /* 이미지 스타일 */
+        .card-txt { padding: 20px; }
+        .card-txt h3 { font-size: 1.1rem; margin-bottom: 8px; } /* 카드 제목 스타일 */
+        .card-txt p { font-size: 0.9rem; color: #777; text-align: left; margin-bottom: 15px; } /* 카드 본문 스타일 */
+        .view-detail-btn { background-color: #007bff; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; transition: background-color 0.3s; }
+        .view-detail-btn:hover { background-color: #0056b3; }
+        .card-detail { margin-top: 15px; padding-top: 15px; border-top: 1px solid #eee; text-align: left; display: none; } /* 상세 설명 부분 */
+        .card-detail h4 { font-size: 1rem; margin-bottom: 5px; }
+        .card-detail p { font-size: 0.85rem; color: #555; text-align: left; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <div style="font-weight:700; font-size:1.1rem;">My Gallery</div> <!-- 여기에 로고 또는 사이트 이름을 입력하세요 -->
+            <div class="nav-links">
+                <a href="#home">메인</a> <!-- 메뉴 항목 수정 -->
+                <a href="#work">갤러리</a> <!-- '소개' 대신 '갤러리'로 변경 -->
+            </div>
+        </div>
+    </header>
+
+    <section id="home">
+        <h1>당신의 작품을<br>세상에 보여주세요.</h1> <!-- 메인 섹션 제목을 입력하세요 -->
+        <p>깔끔한 디자인과 부드러운 스크롤로 방문자에게 최고의 경험을 제공합니다.</p> <!-- 메인 섹션 설명을 입력하세요 -->
+    </section>
+
+    <!-- 'About' 섹션은 삭제되었습니다. -->
+
+    <section id="work">
+        <h2 style="font-size:2rem; margin-bottom:20px;">나의 작품들</h2> <!-- 'Work' 섹션 제목을 입력하세요 -->
+        <div class="grid">
+            <div class="card" data-project-id="project1">
+                <div class="card-img-container">
+                    <img src="https://via.placeholder.com/300x200?text=Project+01" alt="Project 01 Image">
+                </div>
+                <div class="card-txt">
+                    <h3>첫 번째 그림 작업</h3> <!-- 프로젝트 제목 -->
+                    <p>간략한 설명: 이 그림은 자연의 아름다움을 추상적으로 표현했습니다.</p> <!-- 간략한 설명 -->
+                    <button class="view-detail-btn" data-project-id="project1">자세히 보기</button>
+                    <div class="card-detail" id="detail-project1">
+                        <h4>상세 설명: 첫 번째 그림 작업</h4>
+                        <p>이 작품은 캔버스 위에 아크릴 물감으로 작업되었으며, 새벽녘 숲의 고요함과 생동감을 담아내려 했습니다. 색상의 조화와 붓 터치에 특히 신경을 썼습니다. (여기에 더 자세한 설명을 추가하세요.)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card" data-project-id="project2">
+                <div class="card-img-container">
+                    <img src="https://via.placeholder.com/300x200?text=Project+02" alt="Project 02 Image">
+                </div>
+                <div class="card-txt">
+                    <h3>두 번째 디지털 아트</h3> <!-- 프로젝트 제목 -->
+                    <p>간략한 설명: 미래 도시의 풍경을 상상하여 디지털로 그렸습니다.</p> <!-- 간략한 설명 -->
+                    <button class="view-detail-btn" data-project-id="project2">자세히 보기</button>
+                    <div class="card-detail" id="detail-project2">
+                        <h4>상세 설명: 두 번째 디지털 아트</h4>
+                        <p>Photoshop과 Procreate를 사용하여 작업한 디지털 일러스트입니다. 고층 빌딩과 비행선, 그리고 바쁘게 움직이는 사람들의 모습을 통해 현대 사회의 역동성을 표현하고자 했습니다. (여기에 더 자세한 설명을 추가하세요.)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card" data-project-id="project3">
+                <div class="card-img-container">
+                    <img src="https://via.placeholder.com/300x200?text=Project+03" alt="Project 03 Image">
+                </div>
+                <div class="card-txt">
+                    <h3>세 번째 팝아트 초상화</h3> <!-- 프로젝트 제목 -->
+                    <p>간략한 설명: 좋아하는 캐릭터를 팝아트 스타일로 재해석했습니다.</p> <!-- 간략한 설명 -->
+                    <button class="view-detail-btn" data-project-id="project3">자세히 보기</button>
+                    <div class="card-detail" id="detail-project3">
+                        <h4>상세 설명: 세 번째 팝아트 초상화</h4>
+                        <p>만화에서 영감을 받아 강렬한 색감과 단순화된 형태로 작업한 팝아트 작품입니다. 인물의 특징을 부각시키면서도 유쾌하고 활기찬 분위기를 연출하는 데 중점을 두었습니다. (여기에 더 자세한 설명을 추가하세요.)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const detailButtons = document.querySelectorAll('.view-detail-btn');
+            detailButtons.forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const projectId = event.target.dataset.projectId;
+                    const detailDiv = document.getElementById(`detail-${projectId}`);
+                    if (detailDiv) {
+                        // 초기 상태를 hidden으로 설정했으므로 토글 시 block으로 변경
+                        if (detailDiv.style.display === 'none' || detailDiv.style.display === '') {
+                            detailDiv.style.display = 'block';
+                            event.target.textContent = '숨기기';
+                        } else {
+                            detailDiv.style.display = 'none';
+                            event.target.textContent = '자세히 보기';
+                        }
+                    }
+                });
+            });
+
+            // 페이지 로드 시 모든 상세 설명 숨기기
+            document.querySelectorAll('.card-detail').forEach(detail => {
+                detail.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
